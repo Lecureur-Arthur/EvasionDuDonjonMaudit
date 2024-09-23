@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Simple Modular Dungeon/Scenes/Modular Dungeon.unity
+    path: Assets/Scenes/Dungeon.unity
     guid: 27915ac565aadf048b89a94d619c501d
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d5f2a23812d4e93418b3575bea98cb90,
