@@ -1604,6 +1604,28 @@
                 },
                 {
                     "name": "",
+                    "id": "a909faf3-79ef-402d-9fa5-f0d489b6c06d",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f1f808cc-d23f-4f21-91f3-33ea867a43fc",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "dd433817-216c-46b9-8dd3-f3a4ea1767b9",
                     "path": "<XRController>{RightHand}/{Grip}",
                     "interactions": "",
