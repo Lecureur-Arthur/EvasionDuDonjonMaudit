@@ -9300,6 +9300,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7741092400024876022, guid: c16121dd5615f044fb0780d890e24983,
         type: 3}
+      propertyPath: correctCode
+      value: 3086
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741092400024876022, guid: c16121dd5615f044fb0780d890e24983,
+        type: 3}
       propertyPath: wallToEnable
       value: 
       objectReference: {fileID: 1369308321}

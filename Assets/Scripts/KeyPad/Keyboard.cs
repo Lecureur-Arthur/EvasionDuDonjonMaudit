@@ -8,7 +8,7 @@ public class Keyboard : MonoBehaviour
     public AudioClip successClip; // Son de reussite
     public AudioClip failureClip; // Son d'echec
     public AudioSource audioSource; // Source audio
-    public string correctCode = "3086";
+    public string correctCode;
 
     private int maxCodeLenght = 4;
 
