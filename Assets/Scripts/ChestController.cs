@@ -13,25 +13,10 @@ public class ChestController : MonoBehaviour
         chestLid = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            chestLid.Play("ChestOpen");
-        }
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            chestLid.Play("ChestClose");
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "RightController")
         {
-            Debug.Log("Open Chest");
             if (isOpen == false)
             {
                 chestLid.Play("ChestOpen");
