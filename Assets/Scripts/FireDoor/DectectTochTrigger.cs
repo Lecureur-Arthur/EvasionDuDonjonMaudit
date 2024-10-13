@@ -9,6 +9,9 @@ public class DetectTorchTrigger : MonoBehaviour
     public GameObject wallToEnable;  // Mur à activer
     public GameObject animationFire; // Animation de feu
 
+    public GameObject triggerTaklDisable;
+    public GameObject triggerTalkEnable;
+
     private bool hasTriggered = false; // Variable de contrôle pour savoir si l'événement a déjà été déclenché
 
     private void OnTriggerEnter(Collider other)
@@ -38,5 +41,8 @@ public class DetectTorchTrigger : MonoBehaviour
         // Désactiver un mur et activer l'autre
         wallToDisable.SetActive(false);
         wallToEnable.SetActive(true);
+
+        triggerTaklDisable.SetActive(false);
+        triggerTalkEnable.SetActive(true);
     }
 }
