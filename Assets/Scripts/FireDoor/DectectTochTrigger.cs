@@ -2,23 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DectectTochTrigger : MonoBehaviour
+public class DetectTorchTrigger : MonoBehaviour
 {
     // Références aux murs
     public GameObject wallToDisable; // Mur à désactiver
     public GameObject wallToEnable;  // Mur à activer
+    public GameObject animationFire; // Animation de feu
+
+    private bool hasTriggered = false; // Variable de contrôle pour savoir si l'événement a déjà été déclenché
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Torch")
+        // Vérifier si l'objet qui entre a le tag "Torch" et si l'événement n'a pas déjà été déclenché
+        if (other.gameObject.tag == "Torch" && !hasTriggered)
         {
-            // Animation du feux pendant 3 seconde
-            
-            // Sons de feux pendant 3 seconde
+            // Démarrer la coroutine pour l'animation du feu et les changements de mur
+            StartCoroutine(HandleFireAnimationAndWalls());
 
-            // Désactiver un mur et activer l'autre
-            wallToDisable.SetActive(false);
-            wallToEnable.SetActive(true);
+            // Marquer l'événement comme déclenché
+            hasTriggered = true;
         }
+    }
+
+    private IEnumerator HandleFireAnimationAndWalls()
+    {
+        // Activer l'animation du feu
+        animationFire.SetActive(true);
+
+        // Attendre 3 secondes
+        yield return new WaitForSeconds(3f);
+
+        // Désactiver l'animation du feu
+        animationFire.SetActive(false);
+
+        // Désactiver un mur et activer l'autre
+        wallToDisable.SetActive(false);
+        wallToEnable.SetActive(true);
     }
 }
