@@ -13,6 +13,9 @@ public class TriggerTalkStory : MonoBehaviour
     public GameObject triggerToDisable;
     public GameObject triggerToEnable;
 
+    public NineSubtitle SubtitleScript;  // Référence au script NineSubtitle
+
+
     private Animator characterAnimator;        // Pour stocker la référence à l'Animator
     private bool isPlaying = false;
 
@@ -34,6 +37,12 @@ public class TriggerTalkStory : MonoBehaviour
                 voiceClipSource.clip = voiceClip;
                 voiceClipSource.Play();
                 isPlaying = true;
+
+                // Déclenche l'affichage des sous-titres à partir de NineSubtitle
+                if (SubtitleScript != null)
+                {
+                    StartCoroutine(SubtitleScript.ShowSubtitles()); // Appelle la méthode coroutine de NineSubtitle
+                }
 
                 // Appelle une fonction pour arrêter l'animation lorsque le son est terminé
                 StartCoroutine(StopAnimationWhenAudioEnds(voiceClip.length));

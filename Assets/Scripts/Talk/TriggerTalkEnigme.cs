@@ -10,6 +10,8 @@ public class TriggerTalkEnigme : MonoBehaviour
     public AudioClip voiceClip;                // Le clip audio unique à jouer
     public string clipToPlay; // Nom du clip à jouer (pour référence)
 
+    public NineSubtitle SubtitleScript; 
+
     private Animator characterAnimator;        // Pour stocker la référence à l'Animator
     private bool isPlaying = false;
 
@@ -32,6 +34,12 @@ public class TriggerTalkEnigme : MonoBehaviour
                 voiceClipSource.Play();
                 isPlaying = true;
 
+                // Déclenche l'affichage des sous-titres à partir de NineSubtitle
+                if (SubtitleScript != null)
+                {
+                    StartCoroutine(SubtitleScript.ShowSubtitles()); // Appelle la méthode coroutine de NineSubtitle
+                }
+
                 // Appelle une fonction pour arrêter l'animation lorsque le son est terminé
                 StartCoroutine(StopAnimationWhenAudioEnds(voiceClip.length));
             }
@@ -48,7 +56,7 @@ public class TriggerTalkEnigme : MonoBehaviour
         yield return new WaitForSeconds(clipLength);
         
         // Arrête l'animation
-        characterAnimator.Play("NoAnimation"); // Remplace "Idle" par une animation neutre si besoin
+        characterAnimator.Play("NoAnimation"); // Remplace "NoAnimation" par une animation neutre si besoin
         isPlaying = false;
     }
 }
