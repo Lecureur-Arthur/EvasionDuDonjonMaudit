@@ -9,6 +9,9 @@ public class DetectTorchTrigger : MonoBehaviour
     public GameObject wallToEnable;  // Mur à activer
     public GameObject animationFire; // Animation de feu
 
+    public AudioClip successClip; // Son de reussite
+    public AudioSource audioSource; // Source audio
+
     public GameObject triggerTaklDisable;
     public GameObject triggerTalkEnable;
 
@@ -19,6 +22,8 @@ public class DetectTorchTrigger : MonoBehaviour
         // Vérifier si l'objet qui entre a le tag "Torch" et si l'événement n'a pas déjà été déclenché
         if (other.gameObject.tag == "Torch" && !hasTriggered)
         {
+            audioSource.PlayOneShot(successClip);
+            
             // Démarrer la coroutine pour l'animation du feu et les changements de mur
             StartCoroutine(HandleFireAnimationAndWalls());
 
